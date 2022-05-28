@@ -3,6 +3,11 @@ import { galleryItems } from './gallery-items.js';
 
 // Создай галерею с возможностью клика по её элементам и просмотра полноразмерного изображения в модальном окне. 
 
+const galleryContainer = document.querySelector('.gallery')
+const cardMarkup = ceateCardsMarkup(galleryItems);
+
+galleryContainer.insertAdjacentHTML('beforebegin', cardMarkup );
+
 function ceateCardsMarkup(galleryItems) {
   return galleryItems
   .map(({preview, description}) => {
