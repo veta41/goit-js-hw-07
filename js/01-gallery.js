@@ -18,7 +18,7 @@ function ceateCardsMarkup(galleryItems) {
       class="gallery__image"
       src="${preview}"
       data-source="large-image.jpg"
-      alt="${description}}"
+      alt="${description}"
     />
   </a>
 </div>
