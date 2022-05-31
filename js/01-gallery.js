@@ -6,18 +6,18 @@ import { galleryItems } from './gallery-items.js';
 const galleryContainer = document.querySelector('.gallery')
 const cardMarkup = ceateCardsMarkup(galleryItems);
 
-galleryContainer.insertAdjacentHTML('beforebegin', cardMarkup );
+galleryContainer.insertAdjacentHTML('beforeend', cardMarkup );
 
 function ceateCardsMarkup(galleryItems) {
   return galleryItems
-  .map(({preview, description}) => {
+  .map(({preview, description, original}) => {
     return `
     <div class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
+    <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
       src="${preview}"
-      data-source="large-image.jpg"
+      data-source="${original}"
       alt="${description}"
     />
   </a>
@@ -27,4 +27,44 @@ function ceateCardsMarkup(galleryItems) {
   })
   .join('')
   
+}
+
+
+galleryContainer.addEventListener('click', onCardContainerClick);
+
+
+function onCardContainerClick(e) {
+  e.preventDefault();
+
+ 
+    const instance = basicLightbox.create (`
+        <img src = "${e.target.dataset.source}">
+      `)
+
+    instance.show()
+
+    const isEscKey = instance.visible();
+    
+    if(isEscKey) {
+      document.addEventListener('keydown', onEscKeyPress );
+    } else {
+      document.removeEventListener('keydown', onEscKeyPress );
+    }
+
+    
+
+
+
+
+function onEscKeyPress(e) {
+  
+  if(e.code === 'Escape'){
+    instance.close();
+    
+  }
+}
+
+
+
+
 }
