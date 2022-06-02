@@ -18,10 +18,11 @@ function ceateCardsMarkup(galleryItems) {
     <img
       class="gallery__image"
       src="${preview}"
-      data-source="${original}"
       alt="${description}"
     />
   </a>
+
+ 
 </div>
      
     `
@@ -29,3 +30,13 @@ function ceateCardsMarkup(galleryItems) {
   .join('')
   
 }
+
+
+let gallery = new SimpleLightbox('.gallery a', { 
+  
+  captionsData : "alt" ,
+  captionDelay: 250,
+  enableKeyboard: true
+   });
+
+
