@@ -44,7 +44,7 @@ function onCardContainerClick(e) {
     instance.show()
 
     const isEscKey = instance.visible();
-    
+
     if(isEscKey) {
       document.addEventListener('keydown', onEscKeyPress );
     } else {
@@ -61,10 +61,6 @@ function onEscKeyPress(e) {
   if(e.code === 'Escape'){
     instance.close();
     
+    }
   }
-}
-
-
-
-
 }
