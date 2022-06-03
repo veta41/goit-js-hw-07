@@ -4,7 +4,9 @@ import { galleryItems } from './gallery-items.js';
 // Создай галерею с возможностью клика по её элементам и просмотра полноразмерного изображения в модальном окне. 
 
 const galleryContainer = document.querySelector('.gallery')
+
 const cardMarkup = ceateCardsMarkup(galleryItems);
+
 
 galleryContainer.insertAdjacentHTML('beforeend', cardMarkup );
 
@@ -47,9 +49,11 @@ function onCardContainerClick(e) {
 
     if(isEscKey) {
       document.addEventListener('keydown', onEscKeyPress );
-    } else {
+    } else{
       document.removeEventListener('keydown', onEscKeyPress );
     }
+      
+    
 
     
 
@@ -60,7 +64,11 @@ function onEscKeyPress(e) {
   
   if(e.code === 'Escape'){
     instance.close();
+
+    
+     document.removeEventListener('keydown', onEscKeyPress );
     
     }
+    
   }
 }
