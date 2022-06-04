@@ -45,7 +45,7 @@ function onCardContainerClick(e) {
 
     instance.show()
 
-    const isEscKey = instance.visible();
+    const isEscKey = basicLightbox.visible();
 
     if(isEscKey) {
       document.addEventListener('keydown', onEscKeyPress );
@@ -66,7 +66,7 @@ function onEscKeyPress(e) {
     instance.close();
 
     
-     document.removeEventListener('keydown', onEscKeyPress );
+    document.removeEventListener('keydown', onEscKeyPress );
     
     }
     
